@@ -34,7 +34,6 @@ const EventCategories = ({
       </div>
     </div>
   );
-  // }
 };
 
 export default EventCategories;

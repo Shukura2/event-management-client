@@ -3,7 +3,7 @@ import GoogleProvider from "next-auth/providers/google";
 import { jwtDecode } from "jwt-decode";
 import type { NextAuthOptions } from "next-auth";
 
-const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+const baseUrl = process.env.API_URL;
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -28,6 +28,8 @@ export const authOptions: NextAuthOptions = {
           user.token = res.data.token;
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           user.userRole = res.data.user.userRole;
+          if (res.data.user.userRole === "admin") {
+          }
           return true;
         } else {
           return false;

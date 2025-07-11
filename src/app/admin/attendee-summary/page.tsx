@@ -28,11 +28,11 @@ const AttendeeSummary = () => {
   return (
     <div>
       {attendeeSummary.length > 0 ? (
-        <table className=" w-full">
+        <table className="w-full">
           <thead>
             <tr>
-              <th className="text-white font-bold text-left">Event Name</th>
-              <th className="text-white font-bold w-[50%] text-left">
+              <th className="text-[#AB00E5] font-bold text-left">Event Name</th>
+              <th className="text-[#AB00E5] font-bold w-[50%] text-left">
                 No of Attenders
               </th>
             </tr>
@@ -41,8 +41,8 @@ const AttendeeSummary = () => {
           <tbody>
             {attendeeSummary.map((item) => (
               <tr key={item.event_id}>
-                <td>{item.event_name}</td>
-                <td>{item.number_of_attendees}</td>
+                <td className="capitalize">{item.event_name}</td>
+                <td className="capitalize">{item.number_of_attendees}</td>
               </tr>
             ))}
           </tbody>

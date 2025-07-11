@@ -16,7 +16,7 @@
   background-size: cover;
 }
 .event-cat {
-  @apply px-5 py-2 rounded-md space-y-5;
+  @apply px-3 py-2 rounded-md space-y-4;
 }
 .partners {
   background: url("https://preview.colorlib.com/theme/agenda/images/next-events-header-bg.png");
@@ -99,4 +99,10 @@ table th {
 td {
   height: 50px;
   vertical-align: middle;
+}
+
+@media (min-width: 767px) {
+  .event-cat {
+    @apply px-5 py-3 rounded-md space-y-5;
+  }
 }

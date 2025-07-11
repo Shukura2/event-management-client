@@ -15,11 +15,11 @@ const AdminLayout = async ({ children }: { children: React.ReactNode }) => {
   }
 
   return (
-    <div className="flex min-h-screen bg-purple-200">
+    <div className="min-h-screen bg-purple-200">
       <DashboardSidebar />
-      <div className="ml-64 w-full flex flex-col">
+      <div className="md:pl-64">
         <DashboardHeader />
-        <main className="p-6">{children}</main>
+        <main className="p-4">{children}</main>
       </div>
     </div>
   );

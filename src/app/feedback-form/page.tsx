@@ -34,17 +34,17 @@ const FeedbackPage = () => {
   };
 
   return (
-    <div className=" feedback-bg">
-      <div className="sm:max-w-[650px] md:max-w-[730px] lg:max-w-[1200px] mx-auto px-4 md:px-0 flex justify-center items-center h-full">
-        <div className=" bg-[#AB00E5] bg-opacity-80 w-[60%] h-[300px] rounded-lg flex justify-center items-center">
-          <div className=" w-[75%]">
+    <div className="feedback-bg">
+      <div className="mx-auto max-w-[1200px] p-5 md:py-7 md:px-9 flex justify-center items-center h-full">
+        <div className="bg-[#AB00E5] bg-opacity-80 w-[60%] h-[300px] rounded-lg flex justify-center items-center">
+          <div className="w-[85%] md:w-[75%]">
             <form onSubmit={handleSubmitFeedback}>
               <textarea
                 name="feedback"
                 placeholder="Feedback"
-                className=" w-full px-3 py-1 h-[120px]"
+                className="w-full px-3 py-1 h-[120px]"
               />
-              <div className=" flex gap-x-2 my-5">
+              <div className="flex gap-x-2 my-5">
                 {Array.from({ length: 5 }).map((_, idx) => {
                   const currentRating = idx + 1;
                   return (
@@ -73,7 +73,7 @@ const FeedbackPage = () => {
 
               <button
                 type="submit"
-                className=" bg-white px-3 py-1 text-black font-bold rounded"
+                className="bg-white px-3 py-1 text-black font-bold rounded"
                 disabled={loading}
               >
                 {loading ? "Processing..." : "Submit"}

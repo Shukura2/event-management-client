@@ -1,11 +1,11 @@
 "use server";
-import { EventData, FormData } from "@/types/attendees";
+import { CategoryType, EventData, FormData } from "@/types/attendees";
 import axios from "axios";
 
 const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 export const createEventCategory = async (
-  formData: FormData,
+  formData: CategoryType,
   token: string
 ) => {
   try {
@@ -254,7 +254,6 @@ export const getFeedback = async () => {
       method: "GET",
       url: `${baseUrl}/v1/feedbacks-and-ratings`,
     });
-    console.log(data.message, "dm");
     return data.message;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {

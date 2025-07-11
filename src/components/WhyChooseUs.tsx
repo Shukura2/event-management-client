@@ -3,8 +3,8 @@ import React from "react";
 
 const WhyChooseUs = () => {
   return (
-    <div className="px-4 md:px-0 py-32 sm:max-w-[650px] md:max-w-[730px] lg:max-w-[1200px] mx-auto md:flex md:justify-between  lg:pb-0">
-      <div className=" md:w-[38%]">
+    <div className="mx-auto max-w-[1200px] md:flex md:justify-between md:pb-0">
+      <div className="mb-14 p-5 md:pt-[150px] md:px-9 md:mb-0 md:w-[38%]">
         <Image
           src="https://preview.colorlib.com/theme/agenda/images/logo-2.png"
           alt="image"
@@ -12,11 +12,11 @@ const WhyChooseUs = () => {
           height={238}
         />
       </div>
-      <div className="md:w-[58%]">
-        <h2 className=" text-4xl lg:text-5xl font-bold mb-5">
+      <div className="md:w-[58%] p-5 md:pt-[150px] md:px-9">
+        <h2 className="text-4xl lg:text-5xl font-bold mb-5">
           What is Agenda and why choose our services?
         </h2>
-        <p className=" text-[#777777] text-lg leading-loose ">
+        <p className="text-[#777777] text-lg leading-loose ">
           Vestibulum eget lacus at mauris sagittis varius. Etiam ut venenatis
           dui. Nullam tellus risus, pellentesque at facilisis et, scelerisque
           sit amet metus. Duis vel semper turpis, ac tempus libero. Maecenas id

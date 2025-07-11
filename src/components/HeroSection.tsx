@@ -9,7 +9,7 @@ const HeroSection = () => {
       ?.scrollIntoView({ behavior: "smooth" });
   };
   return (
-    <div className="h-[calc(100vh-100px)] flex items-center my-auto lg:max-w-[1200px] sm:max-w-[650px] md:max-w-[730px] mx-auto px-5 lg:px-0">
+    <div className="h-[calc(100vh-100px)] flex max-w-[1200px] p-5 md:py-7 md:px-9 items-center my-auto mx-auto">
       <div>
         <h2 className="font-bold text-2xl lg:text-7xl text-white">
           We have the best events. <br /> Get your ticket now!

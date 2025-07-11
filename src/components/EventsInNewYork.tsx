@@ -125,7 +125,7 @@ const EventsInNewYork = () => {
 
   return (
     <div className="event">
-      <div className="sm:max-w-[650px] md:max-w-[730px] lg:max-w-[1200px] mx-auto pt-[180px] px-4 md:px-0">
+      <div className="mx-auto pt-[180px] max-w-[1200px] p-5 md:py-[210px] md:px-9">
         <EventCategories
           eventCategoryId={eventCategoryId}
           setEventCategoryId={setEventCategoryId}
@@ -171,7 +171,7 @@ const EventsInNewYork = () => {
           ))}
         </Swiper>
 
-        {events.length === 0 && <p className=" text-white">No items yet</p>}
+        {events.length === 0 && <p className="text-white">No items yet</p>}
         <div className="py-[120px]">
           <h2 className="text-white text-center text-6xl py-6 mb-8 partners font-bold">
             Partners

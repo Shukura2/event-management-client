@@ -164,13 +164,13 @@ const CreateEvent = () => {
   };
 
   return (
-    <div className=" bg-gradient-to-l from-[#AB00E5] to-[#581479]">
-      <div className=" h-full md:h-screen p-10">
-        <div className=" w-[50%] bg-white p-5">
-          <h2 className=" text-center font-bold text-xl">Create Event</h2>
+    <div className="bg-gradient-to-l from-[#AB00E5] to-[#581479]">
+      <div className="h-full md:h-screen p-10">
+        <div className="md:w-[50%] bg-white p-5">
+          <h2 className="text-center font-bold text-xl">Create Event</h2>
           <form onSubmit={handleCreateEvent}>
-            <div className=" mt-5">
-              <label htmlFor="" className=" font-medium">
+            <div className="mt-5">
+              <label htmlFor="" className="font-medium">
                 Title
               </label>
               <br />
@@ -178,11 +178,11 @@ const CreateEvent = () => {
                 type="text"
                 name="title"
                 placeholder="Event Title"
-                className=" w-full h-[40px] border border-[#ddd] p-3 mt-2 outline-none"
+                className="w-full h-[40px] border border-[#ddd] p-3 mt-2 outline-none"
               />
             </div>
 
-            <div className=" flex gap-x-5 mt-5 w-[100%] ">
+            <div className="flex gap-x-5 mt-5 w-[100%] ">
               <div className="w-[50%]">
                 <label htmlFor="" className="font-medium">
                   Event Date
@@ -191,7 +191,7 @@ const CreateEvent = () => {
                 <input
                   type="date"
                   name="eventDate"
-                  className=" h-[40px] w-full border border-[#ddd] p-3 mt-2 outline-none"
+                  className="h-[40px] w-full border border-[#ddd] p-3 mt-2 outline-none"
                 />
               </div>
               <div className="w-[50%]">
@@ -202,12 +202,12 @@ const CreateEvent = () => {
                 <input
                   type="time"
                   name="eventTime"
-                  className=" w-full h-[40px] border border-[#ddd] p-3 mt-2 outline-none"
+                  className="w-full h-[40px] border border-[#ddd] p-3 mt-2 outline-none"
                 />
               </div>
             </div>
 
-            <div className=" mt-5">
+            <div className="mt-5">
               <label htmlFor="" className="font-medium">
                 Venue
               </label>
@@ -216,12 +216,12 @@ const CreateEvent = () => {
                 type="text"
                 name="venue"
                 placeholder="Event Title"
-                className=" w-full h-[40px] border border-[#ddd] p-3 mt-2 outline-none"
+                className="w-full h-[40px] border border-[#ddd] p-3 mt-2 outline-none"
               />
             </div>
 
             <div className="flex gap-x-5 mt-5 w-[100%]">
-              <div className=" w-[50%]">
+              <div className="w-[50%]">
                 <label htmlFor="" className="font-medium">
                   Organizer
                 </label>
@@ -230,11 +230,11 @@ const CreateEvent = () => {
                   type="text"
                   name="organizer"
                   placeholder="Event Organizer"
-                  className=" w-full h-[40px] border border-[#ddd] p-3 mt-2 outline-none"
+                  className="w-full h-[40px] border border-[#ddd] p-3 mt-2 outline-none"
                 />
               </div>
 
-              <div className=" w-[50%]">
+              <div className="w-[50%]">
                 <label htmlFor="" className="font-medium">
                   Category
                 </label>
@@ -242,7 +242,7 @@ const CreateEvent = () => {
 
                 <select
                   name="categoryId"
-                  className=" w-full h-[40px] border border-[#ddd] p-2 mt-2 outline-none"
+                  className="w-full h-[40px] border border-[#ddd] p-2 mt-2 outline-none"
                 >
                   <option value="">Select Category</option>
                   {eventCategories?.map((category: CategoriesData) => (
@@ -254,7 +254,7 @@ const CreateEvent = () => {
               </div>
             </div>
 
-            <div className=" mt-5">
+            <div className="mt-5">
               <label htmlFor="" className="font-medium">
                 Image
               </label>
@@ -282,62 +282,63 @@ const CreateEvent = () => {
           <p>Loading...</p>
         ) : (
           <>
-            <div className=" flex gap-x-5 mb-5">
+            <div className=" flex gap-x-3 md:gap-x-5 mb-5">
               {categories.map((category) => (
                 <button
                   key={category.id}
                   onClick={() => setCategoryId(category.id)}
                   className={`${
                     category.id === categoryId
-                      ? " bg-white text-purple-700"
+                      ? "bg-white text-purple-700"
                       : "bg-purple-700 text-white"
-                  }  px-3 py-1 capitalize font-bold`}
+                  } px-2 text-xs md:text-base md:px-3 py-1 capitalize font-bold`}
                 >
                   {category.title}
                 </button>
               ))}
             </div>
-            {/* )} */}
 
             {events?.length ? (
-              <table className=" w-full text-left">
-                <thead>
-                  <tr>
-                    <th>Title</th>
-                    <th>Event Date</th>
-                    <th>Event Time</th>
-                    <th>Venue</th>
-                    <th>Organizer</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  {events?.map((event) => (
-                    <tr key={event.event_id}>
-                      <td>{event.title}</td>
-                      <td>{formatDate(event.event_date)}</td>
-                      <td>{formatTime(event.event_time)}</td>
-                      <td>{event.venue}</td>
-                      <td>{event.organizer}</td>
-                      <td>
-                        <button
-                          onClick={() => openModal(event)}
-                          className=" bg-green-400 px-3 py-1 mr-3 text-black font-bold"
-                        >
-                          Edit
-                        </button>
-                        <button
-                          className=" bg-red-400 px-3 py-1 font-bold"
-                          onClick={() => handleDeleteEvent(event.event_id)}
-                        >
-                          Delete
-                        </button>
-                      </td>
+              <div className="overflow-x-auto">
+                <table className="w-full text-left">
+                  <thead>
+                    <tr>
+                      <th>Title</th>
+                      <th>Event Date</th>
+                      <th>Event Time</th>
+                      <th>Venue</th>
+                      <th>Organizer</th>
+                      <th>Action</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+
+                  <tbody>
+                    {events?.map((event) => (
+                      <tr key={event.event_id}>
+                        <td>{event.title}</td>
+                        <td>{formatDate(event.event_date)}</td>
+                        <td>{formatTime(event.event_time)}</td>
+                        <td>{event.venue}</td>
+                        <td>{event.organizer}</td>
+                        <td>
+                          <button
+                            onClick={() => openModal(event)}
+                            className="mb-3 md:mb-0 bg-green-400 px-3 py-1 mr-3 text-black font-bold"
+                          >
+                            Edit
+                          </button>
+                          <button
+                            className="bg-red-400 px-3 py-1 font-bold"
+                            onClick={() => handleDeleteEvent(event.event_id)}
+                          >
+                            Delete
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             ) : (
               <p>No events yet</p>
             )}

@@ -29,15 +29,15 @@ const SendFeedback = () => {
   return (
     <>
       <div>
-        <p>SendFeedback</p>
+        <p className="mb-5">Send feedback requests to attendees of;</p>
         {events?.map((event) => (
-          <div key={event.event_id}>
+          <div key={event.event_id} className="mb-3">
             <button
               onClick={() => {
                 setEventId(event.event_id);
                 setModalOpen(!modalOpen);
               }}
-              className=" capitalize"
+              className="capitalize"
             >
               {event.title}
             </button>

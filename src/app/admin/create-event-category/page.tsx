@@ -19,8 +19,9 @@ const CreateEventCategory = () => {
     []
   );
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  const [selectedCategory, setSelectedCategory] =
-    useState<CategoryType | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<CategoryType | null>(
+    null
+  );
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -31,6 +32,16 @@ const CreateEventCategory = () => {
 
     fetchCategories();
   }, []);
+
+  const handleSelectedCatChange = (e:React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    if (!selectedCategory) return;
+
+    setSelectedCategory((prev) => ({
+      ...prev!,
+      [name]: value,
+    }));
+  };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -48,7 +59,7 @@ const CreateEventCategory = () => {
     setLoading(false);
   };
 
-  const openModal = (category: EventCategory) => {
+  const openModal = (category: CategoryType) => {
     setSelectedCategory(category);
     setIsModalOpen(true);
   };
@@ -82,10 +93,10 @@ const CreateEventCategory = () => {
     );
     if (result.success) {
       toast.success(result.message);
-      const d = eventCategories.map((event) =>
+      const updateEvent = eventCategories.map((event) =>
         event.id === categoryId ? { ...event, title: newTitle } : event
       );
-      setEventCategories(d);
+      setEventCategories(updateEvent);
     } else {
       toast.error(result.message);
     }
@@ -93,23 +104,23 @@ const CreateEventCategory = () => {
   };
 
   return (
-    <div className=" bg-gradient-to-l from-[#AB00E5] to-[#581479]">
+    <div className="bg-gradient-to-l from-[#AB00E5] to-[#581479]">
       <div className="px-10 py-10">
-        <div className=" lg:w-[30%] h-[250px] bg-white p-5">
-          <h2 className=" text-center font-bold text-xl">Event Category</h2>
+        <div className="lg:w-[30%] h-[250px] bg-white p-5">
+          <h2 className="text-center font-bold text-xl">Event Category</h2>
           <form onSubmit={handleSubmit}>
-            <div className=" mt-5">
+            <div className="mt-5">
               <label htmlFor="">Title</label> <br />
               <input
                 type="text"
                 name="title"
                 placeholder="Event Category"
-                className=" w-full h-[40px] border border-[#ddd] p-5 mt-2 outline-none"
+                className="w-full h-[40px] border border-[#ddd] p-5 mt-2 outline-none"
               />
             </div>
             <button
               type="submit"
-              className=" bg-[#581479] text-white font-bold px-3 py-1 rounded-md mt-5"
+              className="bg-[#581479] text-white font-bold px-3 py-1 rounded-md mt-5"
               disabled={loading}
             >
               {loading ? "Processing..." : "Create"}
@@ -118,16 +129,16 @@ const CreateEventCategory = () => {
         </div>
       </div>
 
-      <div className=" px-10 py-10">
+      <div className="px-10 py-10">
         {categoryLoading ? (
           <p>Loading...</p>
         ) : (
           <>
             {eventCategories.length > 0 ? (
-              <table className=" w-full">
+              <table className="w-full">
                 <thead>
                   <tr>
-                    <th className=" text-white font-bold w-[50%] text-left">
+                    <th className="text-white font-bold w-[50%] text-left">
                       Title
                     </th>
                     <th className="w-[25%]"></th>
@@ -138,12 +149,12 @@ const CreateEventCategory = () => {
                 <tbody>
                   {eventCategories.map((category) => (
                     <tr key={category.id}>
-                      <td className=" text-white text-lg capitalize">
+                      <td className="text-white text-lg capitalize">
                         {category.title}
                       </td>
                       <td>
                         <button
-                          className=" bg-green-400 px-5 py-2 rounded-md"
+                          className="bg-green-400 px-5 py-2 rounded-md"
                           onClick={() => openModal(category)}
                         >
                           Edit
@@ -151,7 +162,7 @@ const CreateEventCategory = () => {
                       </td>
                       <td>
                         <button
-                          className=" bg-red-400 px-5 py-2 rounded-md"
+                          className="bg-red-400 px-5 py-2 rounded-md"
                           onClick={() => handleDelete(category.id)}
                         >
                           Delete
@@ -172,6 +183,7 @@ const CreateEventCategory = () => {
         isOpen={isModalOpen}
         onclose={handleCloseModal}
         selectedCategory={selectedCategory}
+        handleSelectedCatChange={handleSelectedCatChange}
         handleUpdateCategory={handleUpdateCategory}
       />
     </div>

@@ -17,9 +17,9 @@ const data = [
 
 const Footer = () => {
   return (
-    <div className=" bg-[#08011e] py-[75px] ">
-      <div className="sm:max-w-[650px] md:max-w-[730px] lg:max-w-[1200px] mx-auto px-4 md:px-0">
-        <div className=" flex justify-center">
+    <div className="bg-[#08011e] py-[75px]">
+      <div className="mx-auto max-w-[1200px] p-5 md:py-7 md:px-9">
+        <div className="flex justify-center">
           <Image
             src="https://preview.colorlib.com/theme/agenda/images/logo.png"
             alt="logo"
@@ -28,7 +28,7 @@ const Footer = () => {
           />
         </div>
 
-        <div className=" text-white uppercase font-bold flex flex-wrap justify-center leading-10 gap-x-5 mt-8">
+        <div className="text-white uppercase font-bold flex flex-wrap justify-center leading-10 gap-x-5 mt-8">
           {data.map((list) => (
             <Link href="" key={list.id}>
               {list.link}
@@ -36,13 +36,13 @@ const Footer = () => {
           ))}
         </div>
 
-        <p className=" text-[#2f2f2f] text-center text-sm mb-16 mt-5">
+        <p className="text-[#2f2f2f] text-center text-sm mb-16 mt-5">
           Copyright © 2025 All rights reserved | This template is made with
           &hearts; by <span className=" text-[#800080]">Colorlib</span>
         </p>
 
-        <div className=" text-white flex justify-center">
-          <div className=" flex gap-x-7">
+        <div className="text-white flex flex-wrap justify-center">
+          <div className="flex gap-x-7">
             <FaPinterest />
             <FaLinkedin />
             <FaInstagram />

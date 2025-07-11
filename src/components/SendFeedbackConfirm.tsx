@@ -36,19 +36,28 @@ const SendFeedbackConfirm = ({
 
   if (!modalOpen) return null;
   return (
-    <div className=" fixed inset-0 flex top-0 z-50 left-64 bg-black/50 justify-center items-center">
-      <div className=" bg-white p-10">
-        <button onClick={() => setModalOpen(!modalOpen)} className=" flex ">
+    <div className="fixed inset-0 flex top-0 z-50 left-0 md:left-64 bg-black/50 justify-center items-center">
+      <div className="bg-white p-10">
+        <button onClick={() => setModalOpen(!modalOpen)} className="mb-7">
           close modal
         </button>
 
         <div className="mt-300px">
-          <h3>Are you sure you want to send mails to attendee user</h3>
-          <div className=" flex gap-5">
-            <button onClick={handleFeedbackSend} disabled={loading}>
+          <h3>Are you sure you want to send mails to attendee user?</h3>
+          <div className=" flex gap-5 mt-7">
+            <button
+              className="bg-green-500 font-bold px-4 py-2 "
+              onClick={handleFeedbackSend}
+              disabled={loading}
+            >
               YES
             </button>
-            <button onClick={() => setModalOpen(!modalOpen)}>NO</button>
+            <button
+              className="bg-red-500 text-white font-bold px-4 py-2 "
+              onClick={() => setModalOpen(!modalOpen)}
+            >
+              NO
+            </button>
           </div>
         </div>
       </div>

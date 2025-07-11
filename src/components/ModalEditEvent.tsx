@@ -15,14 +15,14 @@ const ModalEditEvent = ({
   if (!isOpenModal) return null;
 
   return (
-    <div className=" fixed inset-0 flex justify-center items-center bg-black/50">
-      <div className=" w-[50%] bg-purple-200 mt-[90px] text-black p-8">
+    <div className="fixed inset-0 flex justify-center items-center bg-black/50">
+      <div className="w-[50%] bg-purple-200 mt-[90px] text-black p-8">
         <button onClick={closeModal}>close modal</button>
 
         <h2>Edit Event</h2>
         <form onSubmit={handleEditEvent}>
-          <div className=" mt-5">
-            <label htmlFor="" className=" font-medium">
+          <div className="mt-5">
+            <label htmlFor="" className="font-medium">
               Title
             </label>
             <br />
@@ -32,11 +32,11 @@ const ModalEditEvent = ({
               value={editEvent.title || ""}
               onChange={handleChangeCreateEvent}
               placeholder="Event Title"
-              className=" w-full h-[40px] border border-[#ddd] p-3 mt-2 outline-none"
+              className="w-full h-[40px] border border-[#ddd] p-3 mt-2 outline-none"
             />
           </div>
 
-          <div className=" flex gap-x-5 mt-5 w-[100%] ">
+          <div className="flex gap-x-5 mt-5 w-[100%] ">
             <div className="w-[50%]">
               <label htmlFor="" className="font-medium">
                 Event Date
@@ -51,7 +51,7 @@ const ModalEditEvent = ({
                     : ""
                 }
                 onChange={handleChangeCreateEvent}
-                className=" h-[40px] w-full border border-[#ddd] p-3 mt-2 outline-none"
+                className="h-[40px] w-full border border-[#ddd] p-3 mt-2 outline-none"
               />
             </div>
             <div className="w-[50%]">
@@ -64,12 +64,12 @@ const ModalEditEvent = ({
                 name="event_time"
                 value={editEvent.event_time || ""}
                 onChange={handleChangeCreateEvent}
-                className=" w-full h-[40px] border border-[#ddd] p-3 mt-2 outline-none"
+                className="w-full h-[40px] border border-[#ddd] p-3 mt-2 outline-none"
               />
             </div>
           </div>
 
-          <div className=" mt-5">
+          <div className="mt-5">
             <label htmlFor="" className="font-medium">
               Venue
             </label>{" "}
@@ -80,12 +80,12 @@ const ModalEditEvent = ({
               value={editEvent.venue || ""}
               onChange={handleChangeCreateEvent}
               placeholder="Event Title"
-              className=" w-full h-[40px] border border-[#ddd] p-3 mt-2 outline-none"
+              className="w-full h-[40px] border border-[#ddd] p-3 mt-2 outline-none"
             />
           </div>
 
           <div className="flex gap-x-5 mt-5 w-[100%]">
-            <div className=" w-[50%]">
+            <div className="w-[50%]">
               <label htmlFor="" className="font-medium">
                 Organizer
               </label>
@@ -96,11 +96,11 @@ const ModalEditEvent = ({
                 value={editEvent.organizer || ""}
                 onChange={handleChangeCreateEvent}
                 placeholder="Event Organizer"
-                className=" w-full h-[40px] border border-[#ddd] p-3 mt-2 outline-none"
+                className="w-full h-[40px] border border-[#ddd] p-3 mt-2 outline-none"
               />
             </div>
 
-            <div className=" w-[50%]">
+            <div className="w-[50%]">
               <label htmlFor="" className="font-medium">
                 Category
               </label>
@@ -108,7 +108,7 @@ const ModalEditEvent = ({
 
               <select
                 name="category_id"
-                className=" w-full h-[40px] border border-[#ddd] p-2 mt-2 outline-none"
+                className="w-full h-[40px] border border-[#ddd] p-2 mt-2 outline-none"
                 value={editEvent.category_id || ""}
                 onChange={handleChangeSelectCategory}
               >
@@ -122,7 +122,7 @@ const ModalEditEvent = ({
             </div>
           </div>
 
-          <div className=" mt-5">
+          <div className="mt-5">
             <label htmlFor="" className="font-medium">
               Image
             </label>
