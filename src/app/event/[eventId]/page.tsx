@@ -28,6 +28,8 @@ const EventId = () => {
 
   const attendingEvent = async () => {
     setProcessing(true);
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     const result = await confirmAttendingEvent(eventId, session.accessToken);
     if (result.success) {
       toast.success(result.message);

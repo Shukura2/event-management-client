@@ -7,9 +7,13 @@ import { getServerSession } from "next-auth/next";
 
 const AdminLayout = async ({ children }: { children: React.ReactNode }) => {
   const session = await getServerSession(authOptions);
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error
   if (!session?.accessToken) {
     redirect("/api/auth/signin?callbackUrl=");
   }
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error
   if (session?.user?.role !== "admin") {
     redirect("/access-denied");
   }

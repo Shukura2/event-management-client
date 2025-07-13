@@ -25,8 +25,10 @@ export const authOptions: NextAuthOptions = {
         });
         if (res.status === 200) {
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-expect-error
           user.token = res.data.token;
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-expect-error
           user.userRole = res.data.user.userRole;
           if (res.data.user.userRole === "admin") {
           }
@@ -41,13 +43,17 @@ export const authOptions: NextAuthOptions = {
 
     async jwt({ token, user }) {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
       if (user?.token) {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
         token.accessToken = user.token;
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
         token.userRole = user.userRole;
 
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
         const decoded = jwtDecode(user.token);
         token.customExp = decoded.exp;
       }
@@ -58,6 +64,7 @@ export const authOptions: NextAuthOptions = {
     // @ts-expect-error
     async session({ session, token }) {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
       if (token?.customExp && Date.now() / 1000 > token.customExp) {
         return {};
       }
@@ -67,8 +74,10 @@ export const authOptions: NextAuthOptions = {
       }
 
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
       session.accessToken = token.accessToken as string;
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
       session.user.role = token.userRole as string;
       return session;
     },

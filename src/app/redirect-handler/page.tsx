@@ -9,6 +9,8 @@ export default async function RedirectHandler() {
     redirect("/");
   }
 
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error
   const role = session.user?.role;
 
   if (role === "admin") {
@@ -16,6 +18,4 @@ export default async function RedirectHandler() {
   } else {
     redirect("/");
   }
-
-//   return null;
 }

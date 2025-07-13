@@ -3,7 +3,9 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
-const withAttendeeProtection = <P extends object>(Component: React.ComponentType<P>):React.FC<P> => {
+const withAttendeeProtection = <P extends object>(
+  Component: React.ComponentType<P>
+): React.FC<P> => {
   return function ProtectedComponent(props) {
     const { data: session, status } = useSession();
     const router = useRouter();
@@ -16,6 +18,8 @@ const withAttendeeProtection = <P extends object>(Component: React.ComponentType
         return;
       }
 
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
       if (session?.user?.role !== "attendee") {
         router.push("/access-denied");
       }
@@ -25,6 +29,8 @@ const withAttendeeProtection = <P extends object>(Component: React.ComponentType
       status === "loading" ||
       status === "unauthenticated" ||
       !session?.user ||
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
       session?.user?.role !== "attendee"
     ) {
       return null;

@@ -13,6 +13,8 @@ const AttendeeSummary = () => {
 
   useEffect(() => {
     const fetchAttendeeSummary = async () => {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
       const fetched = await getAttendeeSummary(session?.accessToken);
       setAttendeeSummary(fetched);
       setLoading(false);

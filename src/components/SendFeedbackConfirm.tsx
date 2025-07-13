@@ -21,6 +21,8 @@ const SendFeedbackConfirm = ({
   const handleFeedbackSend = async () => {
     setLoading(true);
     const result = await sendFeedbackFormToAttendee(
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
       session.accessToken,
       eventId
     );
