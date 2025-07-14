@@ -15,21 +15,22 @@ const EventCategories = ({
       </h2>
       <div className="flex justify-end my-7">
         <div className="flex space-x-5 text-white font-bold">
-          {eventCategories?.map((category: CategoryType) => (
-            <button
-              key={category.id}
-              className={`event-cat capitalize  ${
-                eventCategoryId === category.id
-                  ? "bg-[#AB00E5] text-white"
-                  : "bg-white text-[#AB00E5]"
-              }`}
-              onClick={() => {
-                setEventCategoryId(category.id);
-              }}
-            >
-              {category.title}
-            </button>
-          ))}
+          {eventCategories &&
+            eventCategories?.map((category: CategoryType) => (
+              <button
+                key={category.id}
+                className={`event-cat capitalize  ${
+                  eventCategoryId === category.id
+                    ? "bg-[#AB00E5] text-white"
+                    : "bg-white text-[#AB00E5]"
+                }`}
+                onClick={() => {
+                  setEventCategoryId(category.id);
+                }}
+              >
+                {category.title}
+              </button>
+            ))}
         </div>
       </div>
     </div>
