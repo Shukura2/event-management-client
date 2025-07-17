@@ -10,10 +10,18 @@ export const authOptions: NextAuthOptions = {
     GoogleProvider({
       clientId: process.env.GOOGLE_ID!,
       clientSecret: process.env.GOOGLE_SECRET!,
+      authorization: {
+        params: {
+          scope: "openid email profile",
+          prompt: "consent",
+        },
+      },
     }),
   ],
+  secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
     async signIn({ user }) {
+      // console.log(user, "user");
       try {
         const res = await axios({
           method: "POST",
@@ -23,6 +31,7 @@ export const authOptions: NextAuthOptions = {
           },
           data: { username: user.name, email: user.email, avatar: user.image },
         });
+        console.log(res, "res");
         if (res.status === 200) {
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-expect-error
@@ -39,6 +48,7 @@ export const authOptions: NextAuthOptions = {
       } catch {
         return false;
       }
+      return true;
     },
 
     async jwt({ token, user }) {

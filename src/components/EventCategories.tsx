@@ -8,6 +8,7 @@ const EventCategories = ({
   setEventCategoryId,
   eventCategories,
 }: EventCategoriesProps) => {
+  console.log(eventCategories, "eventCategories");
   return (
     <div className="my-24 lg:flex lg:justify-between">
       <h2 className="text-4xl font-bold text-white" id="target-section">
@@ -15,7 +16,7 @@ const EventCategories = ({
       </h2>
       <div className="flex justify-end my-7">
         <div className="flex space-x-5 text-white font-bold">
-          {eventCategories &&
+          {eventCategories.length &&
             eventCategories?.map((category: CategoryType) => (
               <button
                 key={category.id}

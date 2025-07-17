@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Agenda - Event Management Solution
 
-## Getting Started
+A client side solution built with Next.js and Tailwind CSS that displays upcoming events and all necessary informations about the event. It also allows event organizers (admin) to manage events by uploading, editing and deleting events.
 
-First, run the development server:
+![Agenda Application Screenshot](./public/app-shot.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Features 
+For Attendees
+- Attend desired upcoming event 
+- Authentication (Google Sign-In)
+- Add feedback and ratings
+
+For Admin
+- Authentication (Google Sign-In) 
+- Create events 
+- Get informations of attendees for specific event
+- Send feedback request to attenders of event 
+
+## Getting Started 
+
+### Prerequisite 
+- Node.js (v18+)
+- npm or yarn 
+
+### Installation 
+
+```bash 
+git clone https://github.com/Shukura2/event-management-client.git
+cd event-management-client
+npm install 
+npm run dev 
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Environment Variable 
+create a `.env.local` file in the root directory and add:
+```env
+NEXT_PUBLIC_API_BASE_URL=your-api-key
+API_URL=api-url
+GOOGLE_ID=google-id
+GOOGLE_SECRET=google-secret
+NEXTAUTH_SECRET=nextauth-secret 
+``` 
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Usage 
+For Attendees
+- Signin with your Google account
+- Pick event of your choice 
+- Click Attening event
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+For Admin 
+- Signin with your Google account 
+- Click the 'Have Admin Access' button to change user role
+- Login 
 
-## Learn More
+## Built with
+- Next.js
+- Tailwind CSS 
+- NextAuth.js 
+- Typescript.js 
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Contributing 
+Pull requests are welcomed for major changes, please open an issue first to discuss what you would like to change. 

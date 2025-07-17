@@ -27,10 +27,10 @@ const Testimonial = () => {
         ) : (
           <>
             <div className="flex flex-wrap md:gap-x-6 ">
-              {feedback.length <= 0 ? (
+              {!feedback ? (
                 <p>No items yet</p>
               ) : (
-                feedback.map((item, idx) => (
+                feedback?.map((item, idx) => (
                   <div
                     key={idx}
                     className="bg-white rounded-xl px-9 py-6 shadow-md"
