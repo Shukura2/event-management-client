@@ -12,8 +12,6 @@ const AdminLayout = async ({ children }: { children: React.ReactNode }) => {
   if (!session?.accessToken) {
     redirect("/api/auth/signin?callbackUrl=");
   }
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-expect-error
   if (session?.user?.role !== "admin") {
     redirect("/access-denied");
   }
