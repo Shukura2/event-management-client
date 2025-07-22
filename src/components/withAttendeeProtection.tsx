@@ -17,9 +17,6 @@ const withAttendeeProtection = <P extends object>(
         router.push("/api/auth/signin?callbackUrl=/");
         return;
       }
-
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-expect-error
       if (session?.user?.role !== "attendee") {
         router.push("/access-denied");
       }
@@ -29,8 +26,6 @@ const withAttendeeProtection = <P extends object>(
       status === "loading" ||
       status === "unauthenticated" ||
       !session?.user ||
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-expect-error
       session?.user?.role !== "attendee"
     ) {
       return null;
