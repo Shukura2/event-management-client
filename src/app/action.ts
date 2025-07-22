@@ -199,6 +199,22 @@ export const getEventsNameAndId = async (token: string) => {
   }
 };
 
+export const grantAdminAccess = async (token: string) => {
+  try {
+    const { data } = await axios({
+      method: "POST",
+      url: `${baseUrl}/v1/request-admin-access`,
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return data;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
+    return error?.response?.data;
+  }
+};
+
 export const sendFeedbackFormToAttendee = async (
   token: string,
   eventId: string

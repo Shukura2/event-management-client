@@ -4,10 +4,13 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { signIn, signOut } from "next-auth/react";
 import { useSession } from "next-auth/react";
+import { grantAdminAccess } from "@/app/action";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
   const { data: session, status } = useSession();
   const [isAuth, setIsAuth] = useState(false);
+  const [processing, setProcessing] = useState(false);
 
   const navLinks = [
     { id: 1, title: "Home", href: "/" },
@@ -16,6 +19,19 @@ const Navbar = () => {
     { id: 4, title: "News", href: "#" },
     { id: 5, title: "Contact", href: "#" },
   ];
+
+  const adminAccess = async () => {
+    setProcessing(true);
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
+    const result = await grantAdminAccess(session.accessToken);
+    if (result.success) {
+      toast(result.message);
+    } else {
+      toast.error(result.message);
+    }
+    setProcessing(false);
+  };
 
   return (
     <div className="text-white relative">
@@ -34,13 +50,21 @@ const Navbar = () => {
               </Link>
             ))}
           </div>
+          <p>hello</p>
           <div>
             {status === "loading" ? (
               <></>
             ) : (
               <>
                 {session ? (
-                  <button onClick={() => signOut()}>Logout</button>
+                  <div className=" flex gap-x-5">
+                    <button onClick={() => signOut()}>Logout</button>
+                    {session.user?.role !== "admin" && (
+                      <button onClick={adminAccess} disabled={processing}>
+                        {processing ? "Processing..." : "Get Admin Access"}
+                      </button>
+                    )}
+                  </div>
                 ) : (
                   <button
                     onClick={() => {
