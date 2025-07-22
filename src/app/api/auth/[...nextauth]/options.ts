@@ -86,8 +86,6 @@ export const authOptions: NextAuthOptions = {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-expect-error
       session.accessToken = token.accessToken as string;
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-expect-error
       session.user.role = token.userRole as string;
       return session;
     },
