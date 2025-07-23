@@ -50,7 +50,6 @@ const Navbar = () => {
               </Link>
             ))}
           </div>
-          <p>hello</p>
           <div>
             {status === "loading" ? (
               <></>
