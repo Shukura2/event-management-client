@@ -27,7 +27,7 @@ const Testimonial = () => {
         ) : (
           <>
             <div className="flex flex-wrap md:gap-x-6 ">
-              {!feedback ? (
+              {!feedback.length ? (
                 <p>No items yet</p>
               ) : (
                 feedback?.map((item, idx) => (
